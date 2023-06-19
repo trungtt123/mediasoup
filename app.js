@@ -7,7 +7,7 @@
 import express from 'express'
 const app = express()
 
-import https from 'httpolyglot'
+import http from 'http'
 import fs from 'fs'
 import path from 'path'
 const __dirname = path.resolve()
@@ -27,7 +27,7 @@ app.use('/sfu/:room', express.static(path.join(__dirname, 'public')))
 
 // SSL cert for HTTPS access
 
-const httpsServer = https.createServer(app)
+const httpsServer = http.createServer(app)
 httpsServer.listen(3000, () => {
   console.log('listening on port: ' + 3000)
 })
